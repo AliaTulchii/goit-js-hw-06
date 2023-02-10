@@ -2,36 +2,35 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const inputValue = document.querySelector('#controls input');
-let boxes = document.querySelector('#boxes');
-let newDiv = document.createElement('div');
 
+const boxes = document.querySelector('#boxes');
+const input = document.querySelector('#controls input');
+const create = document.querySelector('button[data-create]');
+const destroy = document.querySelector('button[data-destroy]');
+
+
+create.addEventListener('click', createBoxes);
 
 
 function createBoxes(amount) {
- 
-
-
+  let newDiv = document.createElement('div');
+  newDiv.classList.add('new-div');
+  newDiv.style.width = "30px";
+  newDiv.style.height = "30px";
+  newDiv.style.backgroundColor = getRandomHexColor();
+  boxes.appendChild(newDiv);
 }
 
-function createDiv ()
-  {
-  var boxEle = document.createElement('div');
-  var container = document.querySelector('.app');
-  boxEle.style.width = "100px";
-  boxEle.style.height = "100px";
-  boxEle.style.backgroundColor = '#f00';
-  container.appendChild(boxEle);
-  }
+destroy.addEventListener('click', destroyBoxes);
+
+function destroyBoxes(amount) {
+ let deleteDiv = document.querySelector(".new-div");
+deleteDiv.parentNode.removeChild(deleteDiv);
+}
 
 
 
 
 
-// <div id="controls">
-//       <input type="number" min="1" max="100" step="1" />
-//       <button type="button" data-create>Create</button>
-//       <button type="button" data-destroy>Destroy</button>
-//     </div>
 
-//     <div id="boxes"></div>
+
