@@ -11,14 +11,25 @@ const destroy = document.querySelector('button[data-destroy]');
 
 create.addEventListener('click', createBoxes);
 
-
+let newDivs = 0;
 function createBoxes(amount) {
-  let newDiv = document.createElement('div');
-  newDiv.classList.add('new-div');
-  newDiv.style.width = "30px";
-  newDiv.style.height = "30px";
-  newDiv.style.backgroundColor = getRandomHexColor();
-  boxes.appendChild(newDiv);
+  newDivs = parseInt(document.querySelector('#controls input').value)
+  for (let amount = 0; amount < newDivs; amount += 1) {
+   let newDiv = document.createElement('div');
+    newDiv.classList.add('new-div');
+    newDiv.style.width = `(20 + ${amount} * 10) + 'px'` ;
+    newDiv.style.height = `(20 + ${amount} * 10) + 'px'`;
+    newDiv.style.backgroundColor = getRandomHexColor();
+    
+   
+  }
+  let divs = divs.push(newDiv[amount]);
+  boxes.append(...divs);
+ 
+  
+
+  
+ 
 }
 
 destroy.addEventListener('click', destroyBoxes);
