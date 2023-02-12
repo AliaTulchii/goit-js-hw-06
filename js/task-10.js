@@ -17,20 +17,18 @@ function createBoxes(amount) {
   for (let amount = 0; amount < newDivs; amount += 1) {
    let newDiv = document.createElement('div');
     newDiv.classList.add('new-div');
-    newDiv.style.width = `(20 + ${amount} * 10) + 'px'` ;
-    newDiv.style.height = `(20 + ${amount} * 10) + 'px'`;
+    newDiv.style.width = 20 + `${amount}` * 10 + 'px';
+    newDiv.style.height = 20 + `${amount}` * 10 + 'px';
     newDiv.style.backgroundColor = getRandomHexColor();
     
-   
+    boxes.appendChild(newDiv);
   }
-  let divs = divs.push(newDiv[amount]);
-  boxes.append(...divs);
- 
   
-
   
- 
 }
+
+
+
 
 destroy.addEventListener('click', destroyBoxes);
 
